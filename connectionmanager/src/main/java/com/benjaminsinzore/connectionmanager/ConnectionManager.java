@@ -44,7 +44,8 @@ public class ConnectionManager extends AppCompatActivity {
     public AtomicBoolean connection (Context context,
                                      Application application,
                                      String connectedMessage,
-                                     String disconnectedMessage
+                                     String disconnectedMessage,
+                                     boolean showMessageDialog
     ){
 
 
