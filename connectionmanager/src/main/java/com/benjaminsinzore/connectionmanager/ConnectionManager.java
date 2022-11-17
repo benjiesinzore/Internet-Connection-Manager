@@ -109,6 +109,7 @@ public class ConnectionManager extends AppCompatActivity {
 
             Glide.with(context).load(R.drawable.wifi).error(R.drawable.ic_error)
                     .into(iv);
+
             new CountDownTimer(5000, 5000) {
 
 
@@ -128,8 +129,10 @@ public class ConnectionManager extends AppCompatActivity {
 
             Glide.with(context).load(R.drawable.no_wifi).error(R.drawable.ic_error)
                     .into(iv);
+
             okBtn.setVisibility(View.VISIBLE);
             okBtn.setOnClickListener(v -> dialog.dismiss());
+
             new CountDownTimer(30000, 30000) {
 
 
