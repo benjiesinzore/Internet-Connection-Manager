@@ -58,14 +58,11 @@ public class ConnectionManager extends AppCompatActivity {
             assert connectionModel != null;
             if (connectionModel.getIsConnected()) {
 
-
                 returnValue.set(true);
-                pref.setMONITOR_CONNECTION("connected");
 
-
-                if (Objects.equals(pref.getDIALOG_STATE_NO_CONNECTION(), "disconnected")){
+                if (Objects.equals(pref.getMONITOR_CONNECTION(), "disconnected")){
                     boolean state = true;
-                    pref.setDIALOG_STATE_NO_CONNECTION("connected");
+                    pref.setMONITOR_CONNECTION("connected");
                     showMyDialog(connectedMessage, context, state);
                 }
 
@@ -74,11 +71,10 @@ public class ConnectionManager extends AppCompatActivity {
 
 
                 returnValue.set(false);
-                pref.setMONITOR_CONNECTION("disconnected");
 
 
                 boolean state = false;
-                pref.setDIALOG_STATE_NO_CONNECTION("disconnected");
+                pref.setMONITOR_CONNECTION("disconnected");
                 showMyDialog(disconnectedMessage, context, state);
 
             }
@@ -111,7 +107,7 @@ public class ConnectionManager extends AppCompatActivity {
 
         if (state){
 
-            Glide.with(context).load(R.drawable.no_wifi).error(R.drawable.ic_error)
+            Glide.with(context).load(R.drawable.wifi).error(R.drawable.ic_error)
                     .into(iv);
             new CountDownTimer(5000, 5000) {
 
@@ -130,7 +126,7 @@ public class ConnectionManager extends AppCompatActivity {
         } else {
 
 
-            Glide.with(context).load(R.drawable.wifi).error(R.drawable.ic_error)
+            Glide.with(context).load(R.drawable.no_wifi).error(R.drawable.ic_error)
                     .into(iv);
             okBtn.setVisibility(View.VISIBLE);
             okBtn.setOnClickListener(v -> dialog.dismiss());

@@ -25,9 +25,7 @@ public class SharedPrefManager {
     public SharedPreferences.Editor editor;
     public String SHARED_PREF_NAME = "pos_pref";
     Context _context;
-    public String MONITOR_CONNECTION = "monitorConnection";
-
-    public String DIALOG_STATE_NO_CONNECTION = "initial";
+    public String MONITOR_CONNECTION = "initial";
 
 
     // Constructor
@@ -35,21 +33,6 @@ public class SharedPrefManager {
         this._context = context;
         pref = _context.getSharedPreferences(SHARED_PREF_NAME, PRIVATE_MODE);
         editor = pref.edit();
-    }
-
-
-    public String getDIALOG_STATE_NO_CONNECTION() {
-        if (pref.getString(DIALOG_STATE_NO_CONNECTION, null) != null){
-
-            return pref.getString(DIALOG_STATE_NO_CONNECTION, null);
-        }
-        return null;
-    }
-
-    public void setDIALOG_STATE_NO_CONNECTION(String sDIALOG_STATE_NO_CONNECTION) {
-
-        editor.putString(DIALOG_STATE_NO_CONNECTION, sDIALOG_STATE_NO_CONNECTION);
-        editor.apply();
     }
 
 
