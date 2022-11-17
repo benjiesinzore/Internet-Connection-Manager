@@ -64,7 +64,11 @@ public class ConnectionManager extends AppCompatActivity {
                 if (Objects.equals(pref.getMONITOR_CONNECTION(), "disconnected")){
                     boolean state = true;
                     pref.setMONITOR_CONNECTION("connected");
-                    showMyDialog(connectedMessage, context, state);
+
+                    if (showMessageDialog){
+                        showMyDialog(connectedMessage, context, state);
+                    }
+
                 }
 
 
@@ -72,11 +76,12 @@ public class ConnectionManager extends AppCompatActivity {
 
 
                 returnValue.set(false);
-
-
                 boolean state = false;
                 pref.setMONITOR_CONNECTION("disconnected");
-                showMyDialog(disconnectedMessage, context, state);
+
+                if (showMessageDialog){
+                    showMyDialog(disconnectedMessage, context, state);
+                }
 
             }
         });
